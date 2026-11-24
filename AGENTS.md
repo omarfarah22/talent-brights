@@ -28,3 +28,9 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Application architecture
+- Keep the required TanStack route bootstrap and render each TalentBridge tool as a distinct content route; this workspace does not support replacing its framework with standalone HTML.
+- Share browser demo state through a React context and persist it only after hydration; this avoids SSR storage access and keeps all workflows client-side.
+- Keep assessment scoring and skill categorization in browser-safe pure functions with tests; transparent rules must remain independently verifiable.
+- Define visual styles and semantic color tokens in the global stylesheet; shared tool views use the same accessible controls and layout.

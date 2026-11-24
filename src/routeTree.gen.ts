@@ -10,33 +10,115 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AssessmentRouteImport } from './routes/assessment'
+import { Route as CredentialMapperRouteImport } from './routes/credential-mapper'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as ExamWaiversRouteImport } from './routes/exam-waivers'
+import { Route as OpportunitiesRouteImport } from './routes/opportunities'
+import { Route as SkillsPassportRouteImport } from './routes/skills-passport'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AssessmentRoute = AssessmentRouteImport.update({
+  id: '/assessment',
+  path: '/assessment',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CredentialMapperRoute = CredentialMapperRouteImport.update({
+  id: '/credential-mapper',
+  path: '/credential-mapper',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExamWaiversRoute = ExamWaiversRouteImport.update({
+  id: '/exam-waivers',
+  path: '/exam-waivers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OpportunitiesRoute = OpportunitiesRouteImport.update({
+  id: '/opportunities',
+  path: '/opportunities',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SkillsPassportRoute = SkillsPassportRouteImport.update({
+  id: '/skills-passport',
+  path: '/skills-passport',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/assessment': typeof AssessmentRoute
+  '/credential-mapper': typeof CredentialMapperRoute
+  '/dashboard': typeof DashboardRoute
+  '/exam-waivers': typeof ExamWaiversRoute
+  '/opportunities': typeof OpportunitiesRoute
+  '/skills-passport': typeof SkillsPassportRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/assessment': typeof AssessmentRoute
+  '/credential-mapper': typeof CredentialMapperRoute
+  '/dashboard': typeof DashboardRoute
+  '/exam-waivers': typeof ExamWaiversRoute
+  '/opportunities': typeof OpportunitiesRoute
+  '/skills-passport': typeof SkillsPassportRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/assessment': typeof AssessmentRoute
+  '/credential-mapper': typeof CredentialMapperRoute
+  '/dashboard': typeof DashboardRoute
+  '/exam-waivers': typeof ExamWaiversRoute
+  '/opportunities': typeof OpportunitiesRoute
+  '/skills-passport': typeof SkillsPassportRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/assessment'
+    | '/credential-mapper'
+    | '/dashboard'
+    | '/exam-waivers'
+    | '/opportunities'
+    | '/skills-passport'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/assessment'
+    | '/credential-mapper'
+    | '/dashboard'
+    | '/exam-waivers'
+    | '/opportunities'
+    | '/skills-passport'
+  id:
+    | '__root__'
+    | '/'
+    | '/assessment'
+    | '/credential-mapper'
+    | '/dashboard'
+    | '/exam-waivers'
+    | '/opportunities'
+    | '/skills-passport'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AssessmentRoute: typeof AssessmentRoute
+  CredentialMapperRoute: typeof CredentialMapperRoute
+  DashboardRoute: typeof DashboardRoute
+  ExamWaiversRoute: typeof ExamWaiversRoute
+  OpportunitiesRoute: typeof OpportunitiesRoute
+  SkillsPassportRoute: typeof SkillsPassportRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +130,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/assessment': {
+      id: '/assessment'
+      path: '/assessment'
+      fullPath: '/assessment'
+      preLoaderRoute: typeof AssessmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/credential-mapper': {
+      id: '/credential-mapper'
+      path: '/credential-mapper'
+      fullPath: '/credential-mapper'
+      preLoaderRoute: typeof CredentialMapperRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/exam-waivers': {
+      id: '/exam-waivers'
+      path: '/exam-waivers'
+      fullPath: '/exam-waivers'
+      preLoaderRoute: typeof ExamWaiversRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/opportunities': {
+      id: '/opportunities'
+      path: '/opportunities'
+      fullPath: '/opportunities'
+      preLoaderRoute: typeof OpportunitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/skills-passport': {
+      id: '/skills-passport'
+      path: '/skills-passport'
+      fullPath: '/skills-passport'
+      preLoaderRoute: typeof SkillsPassportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AssessmentRoute: AssessmentRoute,
+  CredentialMapperRoute: CredentialMapperRoute,
+  DashboardRoute: DashboardRoute,
+  ExamWaiversRoute: ExamWaiversRoute,
+  OpportunitiesRoute: OpportunitiesRoute,
+  SkillsPassportRoute: SkillsPassportRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
